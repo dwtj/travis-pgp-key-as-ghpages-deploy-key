@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ssh-agent -s #start the ssh agent
-chmod 600 .travis/deploy_key.pem # this key should have push access
-ssh-add .travis/deploy_key.pem
+ssh-agent -s
+chmod 600 travis_deploy_ghpages@paninj.org
+ssh-add travis_deploy_ghpages@paninj.org
 ./gradlew deploy
