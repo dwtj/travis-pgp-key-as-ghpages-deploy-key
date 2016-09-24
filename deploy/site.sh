@@ -1,6 +1,7 @@
 #!/bin/sh
 
+DEPLOY_KEY="deploy/ghpages_deploy_key"
 eval $(ssh-agent -s)  # Use the env vars from stdout.
-chmod 600 travis_deploy_ghpages@paninj.org
-ssh-add travis_deploy_ghpages@paninj.org
-./gradlew --stacktrace --info deploy
+chmod 600 "$DEPLOY_KEY"
+ssh-add "$DEPLOY_KEY"
+./gradlew deploy
