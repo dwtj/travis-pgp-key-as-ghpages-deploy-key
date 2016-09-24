@@ -1,0 +1,22 @@
+plugins {
+  id 'base'
+  id 'org.ajoberstar.github-pages' version '1.5.1'
+}
+
+def siteDir = "$projectDir/site"
+
+project.ext['org.ajoberstar.grgit.auth.force'] = 'sshagent'
+githubPages {
+  repoUri = 'git@github.com:dwtj/dwtj.github.io.git'
+  targetBranch = 'master'
+  pages {
+    from siteDir
+  }
+}
+publishGhPages.dependsOn build
+
+// Deploy site to GitHub Pages.
+task deploy() {
+  // TODO: Everything!
+  dependsOn publishGhPages
+}
