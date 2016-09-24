@@ -14,5 +14,5 @@ cache:
 
 deploy:
   - provider: script
-    script: deploy/site.sh
+    script: ./deploy/site.sh
     skip_cleanup: true
